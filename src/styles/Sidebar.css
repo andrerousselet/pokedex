@@ -1,0 +1,17 @@
+.sidebar {
+  width: 20%;
+}
+
+.types-list {
+  text-transform: uppercase;
+  font-size: 13px;
+  text-align: center;
+  line-height: 35px;
+  transition: 200ms;
+}
+
+.type:hover {
+  cursor: pointer;
+  font-size: 15px;
+  transition: 200ms;
+}
