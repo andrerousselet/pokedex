@@ -1,0 +1,6 @@
+.header {
+  background: linear-gradient(to bottom right, rgba(255, 0, 0, 0.75), darkred);
+  height: 500px;
+  color: white;
+  margin-bottom: 20px;
+}
