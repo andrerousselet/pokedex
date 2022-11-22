@@ -2,12 +2,6 @@
   display: flex;
 }
 
-.sidebar {
-  width: 20%;
-  text-align: center;
-  line-height: 35px;
-}
-
 .pokemons {
   display: flex;
   align-items: center;
@@ -57,6 +51,10 @@
   display: flex;
   align-items: center;
   height: 200px;
+}
+
+.hide-loader-btn {
+  display: none;
 }
 
 .load-btn {
