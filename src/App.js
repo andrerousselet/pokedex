@@ -8,13 +8,16 @@ import './App.css';
 function App() {
   const [pokemons, setPokemons] = useState([]);
   const [next, setNext] = useState('');
+  const [loaderBtn, hideLoaderBtn] = useState(false);
+
+  const fetchPokemons = async () => {
+    const data = await requestData('https://pokeapi.co/api/v2/pokemon');
+    setNext(data.next);
+    setPokemons(data.results);
+    hideLoaderBtn(false);
+  }
 
   useEffect(() => {
-    const fetchPokemons = async () => {
-      const data = await requestData('https://pokeapi.co/api/v2/pokemon');
-      setNext(data.next);
-      setPokemons(data.results)
-    }
     fetchPokemons();
   }, []);
 
@@ -28,12 +31,12 @@ function App() {
     <>
       <Header />
       <main className='main-content'>
-        <Sidebar />
+        <Sidebar fetchPokemons={fetchPokemons} setPokemons={setPokemons} hideLoaderBtn={hideLoaderBtn} />
         <section className='pokemons'>
           <Pokemons pokemons={pokemons} />
           <section className='loader-section'>
             <button
-              className='load-btn'
+              className={`load-btn ${loaderBtn ? 'hide-loader-btn' : ''}`}
               type='button'
               onClick={fetchMorePokemons}
             >
